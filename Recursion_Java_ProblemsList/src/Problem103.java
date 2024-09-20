@@ -20,43 +20,42 @@
  * findIndexToDelete("englishslgne") --> 4
  * findIndexToDelete("kkkckk") --> 0
  * findIndexToDelete("kkkkckkk") --> 0
+ * 
+ * →解答は時間計算量O(n^2)、空間計算量O(1)
  */
 public class Problem103 {
+    /*
+     * 答えおかしくね？って思ってテストしたら下記3ケースでミスってた。
+     * どうやらleftとrightで一致していてもleftの方を消したらうまくいくからそれが答えのケースがあるらしい。
+     * 1.("abckktkcba")==3
+     * 2.("kkkckk")==0
+     * 3.("kkkkckkk")==0
+     */
     public static int findIndexToDelete(String password){
-
-        // 両端からチェックしていきます。
-        int right = password.length() - 1;
-        int left = 0;
-
-
-        while (left < right) {
-            // 端が等しくないとき
-            if (password.charAt(left) != password.charAt(right)) {
-
-                // leftを削除した文字列が回文かどうかチェックします。
-                if (isPalindrome(password, left+1, right)) return left;
-                // rightを削除した文字列が回文かどうかチェックします。
-                if (isPalindrome(password, left, right-1)) return right;
-
-                return -2;
-            }
-
-            // 端が等しいときは内側へ進めます。
-            left++;
-            right--;
+        if(isPalindrome(password)) return -1;
+        for(int i=0;i<password.length();i++) {
+        	if(i==0) {
+        		if(isPalindrome(password.substring(1))) return i;
+        	}else if(i==password.length()-1) {
+        		if(isPalindrome(password.substring(0,password.length()-1))) return i;
+        	// どうやらここで失敗してるっぽい。
+        	}else {
+        		if(isPalindrome(password.substring(0,i)+password.substring(i+1))) return i;
+        	}
         }
-
-        return -1;
+        return -2;
     }
 
-    // leftとright（端）を受け取って、回文かどうかチェックする関数
-    public static boolean isPalindrome(String s, int left, int right) {
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) return false;
-            left++;
-            right--;
+    // 回文かどうかチェックする関数
+    public static boolean isPalindrome(String s) {
+        if(s.length()<=1) return true;
+        int left = 0;
+        int right = s.length()-1;
+        while(left<right) {
+        	if(s.charAt(left) != s.charAt(right)) return false;
+        	left++;
+        	right--;
         }
-
         return true;
     }
 }
