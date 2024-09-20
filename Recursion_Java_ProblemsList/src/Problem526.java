@@ -1,3 +1,4 @@
+
 public class Problem526 {
     public static boolean isValidPassword(String password) {
         boolean case1 = !password.contains(" ");

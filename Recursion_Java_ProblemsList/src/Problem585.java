@@ -1,3 +1,4 @@
+
 /*
  * 文字列 s と数値 position が入力として与えられるので、s の position 位置から始まる部分文字列を取得し、
  * その部分文字列を逆順にする関数 reverseSubstringFromPosition を作成してください。

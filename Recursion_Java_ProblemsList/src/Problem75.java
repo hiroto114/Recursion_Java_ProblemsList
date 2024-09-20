@@ -1,3 +1,4 @@
+
 import java.util.Arrays;
 /*
  * Joe は web サイト作成をしており、pagination を担当することになりました。

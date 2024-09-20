@@ -1,3 +1,4 @@
+
 public class Problem561 {
     public static void main(String[] args){
         int initialParticipants = 35;

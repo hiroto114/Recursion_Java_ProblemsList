@@ -1,3 +1,4 @@
+
 /*
  * x-y-z 平面上の空間ベクトルを表す配列 vectorA と配列 vectorB が与えられるので、
  * 2 つのベクトルの外積を表す、vectorCrossProduct という関数を定義してください。

@@ -1,3 +1,4 @@
+
 import java.util.stream.IntStream;
 /*
  * Fingal はあるアパレルショップに訪れました。

@@ -1,3 +1,4 @@
+
 public class Problem562 {
     public static void main(String[] args){
         int initialStock = 200;

@@ -1,3 +1,4 @@
+
 public class Problem482 {
 	public static int getMinSteps(int n) {
 		int[] helper = new int[n + 1];

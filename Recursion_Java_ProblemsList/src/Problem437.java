@@ -1,3 +1,4 @@
+
 import java.util.function.Predicate;
 /*
  * 文字列の配列 arr が与えられるので、

@@ -1,3 +1,4 @@
+
 /*
  * string toHex(int number)
  * 10 進数を受け取り、16 進数で返す関数。

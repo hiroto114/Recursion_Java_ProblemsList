@@ -1,3 +1,4 @@
+
 public class Problem568 {
     public static void main(String[] args){
         int score = 70;

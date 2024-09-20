@@ -1,3 +1,4 @@
+
 public class Problem570 {
     public static void main(String[] args){
         boolean hasFuel = true;

@@ -1,3 +1,4 @@
+
 public class Problem590 {
     public static void main(String[] args){
         Shape circle = new Shape("circle", "red");

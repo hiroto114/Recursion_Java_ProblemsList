@@ -1,3 +1,4 @@
+
 public class Problem572 {
     public static void main(String[] args){
         boolean isOpen = true;

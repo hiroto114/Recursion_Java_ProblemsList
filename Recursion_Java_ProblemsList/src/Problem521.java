@@ -1,3 +1,4 @@
+
 /*
  * canRideRollerCoaster(110,7,false) --> false
  * canRideRollerCoaster(110,7,true) --> false

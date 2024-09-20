@@ -1,3 +1,4 @@
+
 public class Problem567 {
     public static void main(String[] args){
         int age = 40;

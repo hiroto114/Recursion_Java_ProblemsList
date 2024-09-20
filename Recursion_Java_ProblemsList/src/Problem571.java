@@ -1,3 +1,4 @@
+
 public class Problem571 {
     public static void main(String[] args){
         boolean isWeekday = true;

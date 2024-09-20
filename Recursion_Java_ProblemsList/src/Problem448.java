@@ -13,7 +13,7 @@ public class Problem448 {
 		BiFunction<Integer, Integer, Integer> multiplication = (x, y) -> {
 			return x * y;
 		};
-		LambdaMachine lambdaMachine = new LambdaMachine();
+		LambdaMachine1 lambdaMachine = new LambdaMachine1();
 
 		lambdaMachine.insert("pythagora", pythagora);
 		lambdaMachine.insert("addition", addition);
@@ -26,7 +26,7 @@ public class Problem448 {
 	}
 }
 
-class LambdaMachine {
+class LambdaMachine1 {
 	public List<BiFunction<Integer, Integer, Integer>> handlers = new ArrayList<BiFunction<Integer, Integer, Integer>>();
 	public int handlersPointer = 0;
 

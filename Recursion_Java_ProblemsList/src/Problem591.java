@@ -1,3 +1,4 @@
+
 public class Problem591 {
 	public static void main(String[] args) {
 		Plant plant1 = new Plant("Rose", 10, 1);

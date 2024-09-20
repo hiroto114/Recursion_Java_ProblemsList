@@ -1,3 +1,4 @@
+
 public class Problem525 {
     public static String fizzBuzz(int n) {
         if (n <= 0)      return "";

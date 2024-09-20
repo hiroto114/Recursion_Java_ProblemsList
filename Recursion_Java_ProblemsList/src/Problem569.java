@@ -1,3 +1,4 @@
+
 public class Problem569 {
     public static void main(String[] args){
         boolean isRainy = true;

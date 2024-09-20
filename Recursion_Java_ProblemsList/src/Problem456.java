@@ -1,3 +1,4 @@
+
 public class Problem456 {
 	public static void main(String[] args) {
 		System.out.println(validateDecorator(new int[] { 10, 20, 30, 40 }));

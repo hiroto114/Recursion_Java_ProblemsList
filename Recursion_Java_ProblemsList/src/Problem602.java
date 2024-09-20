@@ -1,3 +1,4 @@
+
 public class Problem602 {
     public static int countAdjacentPairs(char[] arr){
         int count = 0;

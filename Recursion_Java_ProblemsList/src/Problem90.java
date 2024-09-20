@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 /*
  * 整数 x と累乗 m が与えられるので、m 乗の数字を足し合わせたら x になる組み合わせの数を返す、combinationsOfSum という関数を定義してください。

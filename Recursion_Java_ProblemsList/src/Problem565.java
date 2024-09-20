@@ -1,3 +1,4 @@
+
 public class Problem565 {
     public static void main(String[] args){
         int temperature = 30;

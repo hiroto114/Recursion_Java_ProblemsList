@@ -1,3 +1,4 @@
+
 /*
  * 問題 407 で 以下の Point クラスを作成しました。
 
@@ -106,26 +107,5 @@ class QuadrilateralShape{
 	}
 	public double crossProduct(Point X, Point Y){
 		return X.x * Y.y - X.y * Y.x;
-	}
-}
-
-class Line{
-	public Point startPoint;
-	public Point endPoint;
-	public Line(Point startPoint,Point endPoint){
-		this.startPoint = startPoint;
-		this.endPoint   = endPoint;
-	}
-	public double getLength(){
-		return Math.sqrt(Math.pow(startPoint.x-endPoint.x,2) + Math.pow(startPoint.y-endPoint.y,2));
-	}
-}
-
-class Point{
-	public double x;
-	public double y;
-	public Point(double x,double y){
-		this.x = x;
-		this.y = y;
 	}
 }

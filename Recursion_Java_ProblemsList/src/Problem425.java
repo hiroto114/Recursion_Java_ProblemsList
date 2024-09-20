@@ -1,3 +1,5 @@
+
+
 /*
  * 双方向リストの実装
  */
@@ -11,15 +13,6 @@ public class Problem425 {
 		System.out.println(numList.tail.data);
 		System.out.println(numList.tail.prev.data);
 		System.out.println(numList.tail.prev.prev.data);
-	}
-}
-class Node{
-	public int data;
-	public Node prev;
-	public Node next;
-
-	public Node(int data){
-		this.data = data;
 	}
 }
 

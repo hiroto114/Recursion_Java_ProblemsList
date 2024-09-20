@@ -1,3 +1,4 @@
+
 public class Problem578 {
     public static String modifyString(String s, int length){
         if(s.length()<=length) return s;

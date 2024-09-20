@@ -1,3 +1,4 @@
+
 public class Problem524 {
     public static int applyDiscount(int originalPrice, double discount) {
         if(discount <= 0 || discount >= 1) return originalPrice;

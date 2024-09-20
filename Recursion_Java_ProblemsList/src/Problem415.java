@@ -1,3 +1,5 @@
+
+
 public class Problem415 {
 	public static void main(String[] args){
 		Deque q = new Deque();
@@ -17,15 +19,7 @@ public class Problem415 {
 		System.out.println(q.dequeueBack());
 	}
 }
-class Node{
-	public int data;
-	public Node prev;
-	public Node next;
 
-	public Node(int data){
-		this.data = data;
-	}
-}
 class Deque{
 	public Node head;
 	public Node tail;

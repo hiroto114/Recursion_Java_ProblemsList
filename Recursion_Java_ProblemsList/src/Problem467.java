@@ -1,3 +1,4 @@
+
 public class Problem467 {
 	public static void main(String[] args) {
 		Card[] cards = new Card[] { new Card("♣", "A", "1"), new Card("♦", "K", "13"), new Card("♥", "Q", "12"),

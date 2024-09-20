@@ -1,3 +1,4 @@
+
 /*
  * 問題 404 で 以下の Product クラスを作成しました。
 
@@ -20,9 +21,9 @@ double amountDue(bool taxes): 請求書の支払総額を計算します。Invoi
  */
 public class Problem406 {
 	public static void main(String[] args){
-		Product product1 = new Product("shampoo", 10.0);
-		Product product2 = new Product("conditioner", 5.0);
-		Product product3 = new Product("tooth brush", 3.0);
+		Product1 product1 = new Product1("shampoo", 10);
+		Product1 product2 = new Product1("conditioner", 5);
+		Product1 product3 = new Product1("tooth brush", 3);
 
 		InvoiceItem firstItem  = new InvoiceItem(product1, 7);
 		InvoiceItem secondItem = new InvoiceItem(product2, 9);
@@ -36,31 +37,25 @@ public class Problem406 {
 		System.out.println(invoice.amountDue(true));
 	}
 }
-class Product{
-	public String title;
-	public double price;
-	public Product(String title, double price){
-		this.title = title;
-		this.price = price;
-	}
-}
 
 class InvoiceItem{
-	public Product product;
+	public Product1 product;
 	public int quantity;
 	public InvoiceItem next;
-	public InvoiceItem(Product product, int quantity){
+	public InvoiceItem(Product1 product,int quantity){
 		this.product = product;
 		this.quantity = quantity;
 	}
-	public double getTotalPrice(){
-		double result = this.quantity * this.product.price;
-		InvoiceItem nextPointer = next;
-		while(nextPointer != null){
-			result += nextPointer.quantity * nextPointer.product.price;
-			nextPointer = nextPointer.next;
-		}
-		return result;
+	public int getTotalPrice(){
+		return quantity * product.price;
+	}
+}
+class Product1 {
+	public String title;
+	public int price;
+	public Product1(String title,int price){
+		this.title = title;
+		this.price = price;
 	}
 }
 

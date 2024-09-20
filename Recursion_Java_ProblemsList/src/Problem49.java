@@ -1,3 +1,4 @@
+
 /*
  * Kathy は現在価格 goalMoney ドルの土地の購入するために、年利 interest（0 < interest < 100）%の金融商品に 
  * capitalMoney ドル投資しようと計画しています。goalMoney, interest, capitalMoney が与えられるので、

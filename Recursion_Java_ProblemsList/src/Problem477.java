@@ -1,3 +1,4 @@
+
 public class Problem477 {
 	public static int videosToWatch(int[] time, int dailyGoal) {
 		int helper = 0;

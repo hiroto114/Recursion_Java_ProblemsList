@@ -78,16 +78,6 @@ class Point {
 	}
 }
 
-class Line {
-	public Point startPoint;
-	public Point endPoint;
-
-	public Line(Point startPoint, Point endPoint) {
-		this.startPoint = startPoint;
-		this.endPoint = endPoint;
-	}
-}
-
 class Square {
 	public Line AB;
 	public Line BC;

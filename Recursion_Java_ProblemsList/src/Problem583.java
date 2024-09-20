@@ -1,3 +1,4 @@
+
 public class Problem583 {
     public static String findMinMax(int num1, int num2){
         String result = "";

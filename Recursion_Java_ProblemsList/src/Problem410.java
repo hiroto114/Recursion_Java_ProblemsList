@@ -15,15 +15,6 @@ public class Problem410 {
 		System.out.println(s2.peek());        
 	}
 }
-class Node{
-	public int data;
-	public Node next;
-
-	public Node(int data){
-		this.data = data;
-		this.next = null;
-	}
-}
 
 class Stack {
 	public Node head;

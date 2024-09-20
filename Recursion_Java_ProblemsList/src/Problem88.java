@@ -1,3 +1,4 @@
+
 import java.util.Arrays;
 /*
  * Walker はあるワードゲームの大会で審判をしています。

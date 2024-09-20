@@ -1,3 +1,4 @@
+
 public class Problem529 {
     public static char getStudentGPA(int points) {
         char output = ' ';

@@ -18,15 +18,6 @@ public class Problem414 {
 		System.out.println(q.dequeue());
 	}
 }
-class Node{
-	public int data;
-	public Node next;
-
-	public Node(int data){
-		this.data = data;
-		this.next = null;
-	}
-}
 
 class Queue{
 	public Node head;

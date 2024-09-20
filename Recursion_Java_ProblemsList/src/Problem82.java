@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;/*
  * James は学校にあるロッカーのパスワードシステムを開発していました。

@@ -1,3 +1,4 @@
+
 /*
  * x-y 平面上の全ての点は (x,y) と表現することができます。以下に従って、Point クラスを作成し、テストケースを出力してください。
 
@@ -15,11 +16,4 @@ public class Problem407 {
 		System.out.println(b.y);
 	}
 }
-class Point{
-	public int x;
-	public int y;
-	Point(int x1,int y1){
-		x=x1;
-		y=y1;
-	}
-}
+

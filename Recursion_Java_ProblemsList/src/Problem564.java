@@ -1,3 +1,4 @@
+
 public class Problem564 {
     public static void main(String[] args){
         int sales = 500;

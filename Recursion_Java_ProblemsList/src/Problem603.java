@@ -1,3 +1,4 @@
+
 /*
  * 文字の配列 arr が与えられたとき、配列内で最も長く連続して出現する文字とその長さを返す関数 findLongestConsecutiveSequence を作成してください。
  * 

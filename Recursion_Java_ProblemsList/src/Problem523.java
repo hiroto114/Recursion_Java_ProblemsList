@@ -1,3 +1,4 @@
+
 public class Problem523 {
 	public static int cube(int x) {
 		return x * x * x;

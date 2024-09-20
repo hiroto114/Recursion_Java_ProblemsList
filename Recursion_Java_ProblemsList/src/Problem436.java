@@ -1,3 +1,4 @@
+
 import java.util.function.Function;
 
 public class Problem436 {

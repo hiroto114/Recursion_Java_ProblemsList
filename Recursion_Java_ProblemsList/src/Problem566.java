@@ -1,3 +1,4 @@
+
 public class Problem566 {
     public static void main(String[] args){
         int speed = 55;

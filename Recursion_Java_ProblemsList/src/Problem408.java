@@ -1,3 +1,4 @@
+
 /*
  * x-y 平面上の線は、始点と終点によって定義することができます。
  * この Line クラスには、2 つの Point オブジェクトを引数として受け取るコンストラクタがあり、
@@ -21,24 +22,3 @@ public class Problem408 {
 	}
 }
 
-class Point{
-	public int x;
-	public int y;
-	Point(int x1,int y1){
-		x=x1;
-		y=y1;
-	}
-}
-
-class Line{
-	public Point startPoint;
-	public Point endPoint;
-	public void Line(Point startPoint,Point endPoint){
-		this.startPoint = startPoint;
-		this.endPoint = endPoint;
-	}
-	public double getLength(){
-		return Math.sqrt(Math.pow(startPoint.x-endPoint.x,2)
-				+ Math.pow(startPoint.y-endPoint.y,2));
-	}
-}
