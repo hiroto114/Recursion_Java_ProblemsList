@@ -27,24 +27,40 @@ import java.util.Map;
  * findCommon(['b','b','c','d'],['c','c','b','b']) --> b
  * findCommon(['a','b','c','d'],['e','c','g','b','f']) --> c
  * findCommon(['a','b','c','d','v','b','c'],['e','c','g','b','f','b']) --> c
+ * 
+ * さすがに時間計算量O(mn)のやり方はうまくなかったので修正
  */
 public class Problem121 {
+    /**
+     * 2つの文字の配列の共通文字の位置の合計が最小になるような文字を返却
+     * →注意するポイントはabcdとecbgの2つ
+     * 答えはb(1+2)とc(2+1)の2つあるように見えるが、charArr1から見た位置が一番最初がbの方なのでbが答えになる。
+     * なので下記やり方を採用すると時間計算量O(Math.max(m,n))で解ける。
+     * ➀charArr2の統計をHashMapで集計
+     * ➁charArr1を左から順にみていってresultValueの値がより小さいペアの文字を答えにしていく
+     */
     public static String findCommon(char[] charArr1, char[] charArr2){
-        Map<Character, Character> queue = new HashMap<Character, Character>();
+        Map<Character, Integer> queue = new HashMap<Character, Integer>();
+
+        for(int i=0;i<charArr2.length;i++){
+            if(queue.get(charArr2[i])==null){
+                queue.put(charArr2[i],i);
+            }
+        }
+        
         String result = "no common";
         int resultValue = Integer.MAX_VALUE;
         
         for(int i=0;i<charArr1.length;i++){
-            for(int m=0;m<charArr2.length;m++){
-                if(charArr1[i] == charArr2[m]){
-                    if(queue.get(charArr1[i]) == null && i+m < resultValue){
-                        result = String.valueOf(charArr1[i]);
-                        resultValue = i+m;
-                        queue.put(charArr1[i], charArr1[i]);
-                    }
-                }
+            if(queue.get(charArr1[i])==null){
+                continue;
+            }
+            if(queue.get(charArr1[i])+i<resultValue){
+                result = String.valueOf(charArr1[i]);
+                resultValue = queue.get(charArr1[i])+i;
             }
         }
+        
         return result;
     }
 }
