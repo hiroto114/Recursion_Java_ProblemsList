@@ -9,8 +9,22 @@ public class Problem137 {
 	 * @param string
 	 * @return
 	 */
+    public static void main(String[] args) {
+        System.out.println("テストケース 1: " + longestPalindromicSubstring("ba").equals("b"));
+        System.out.println("テストケース 2: " + longestPalindromicSubstring("babad").equals("bab"));
+        System.out.println("テストケース 3: " + longestPalindromicSubstring("cbbd").equals("bb"));
+        System.out.println("テストケース 4: " + longestPalindromicSubstring("a").equals("a"));
+        System.out.println("テストケース 5: " + longestPalindromicSubstring("ac").equals("a"));
+        System.out.println("テストケース 6: " + longestPalindromicSubstring("racecar").equals("racecar"));
+        System.out.println("テストケース 7: " + longestPalindromicSubstring("aabb").equals("aa"));
+        System.out.println("テストケース 8: " + longestPalindromicSubstring("abcdefg").equals("a"));
+        System.out.println("テストケース 9: " + longestPalindromicSubstring("").equals(""));
+        System.out.println("テストケース 10: " + longestPalindromicSubstring("abccba").equals("abccba"));
+        System.out.println("テストケース 11: " + longestPalindromicSubstring("abcdedcba").equals("abcdedcba"));
+    }
     public static String longestPalindromicSubstring(String string){
-        int max = (int)-Integer.MAX_VALUE;
+        if("".equals(string)) return "";
+        int max = 1;
         int left = 0;
         int right = 0;
 
@@ -43,7 +57,7 @@ public class Problem137 {
             right++;
         }
 
-        return (right - 1) - (left + 1) + 1;
+        return right - left - 1;
     }
 /*  自分が当初思い描いた案。
     public static String longestPalindromicSubstring(String string){
