@@ -23,6 +23,8 @@ public class Problem155 {
      * 3,左端と右端の値が一致していればこの時の値をresultに反映
      * 4,右端を1つ右にずらす
      * 5,もしも不一致ならここまでの結果をresultに反映
+     * 
+     * continueを使いすぎない。かえってわかりづらくなる。トレードオフ。
      */
     public static int longestConsecutiveLength(String s){
         int start = 0;
