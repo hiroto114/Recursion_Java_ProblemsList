@@ -54,4 +54,32 @@ public class Problem136 {
         return result;
 
     }
+/*  
+  　下記は時間計算量O(n^2)の別解。
+    public static String longestPalindromeLength(String input){
+        if(input.length()==0) return "";
+        int max = 1;
+        int left = 0;
+        int right = 0;
+        for(int i=0;i<input.length();i++){
+            int len1 = expandFromMiddle(input,i,i);     //abaのパターンよ
+            int len2 = expandFromMiddle(input,i,i+1);   //abbaのパターンよ
+            if(max<Math.max(len1,len2)){
+                max=Math.max(len1,len2);
+                //絶対にここがおかしいはず→よく考えてみたらここで間違えてた。
+                left=i-(max-1)/2;
+                right=i+max/2;
+            }
+        }
+        return input.substring(left,right+1);
+    }
+    public static int expandFromMiddle(String input, int left, int right){
+        while(left>=0&&right<=input.length()-1&&input.charAt(left)==input.charAt(right)){
+            left--;
+            right++;
+        }
+        return right-left-1;
+    }
+ 
+ */
 }
