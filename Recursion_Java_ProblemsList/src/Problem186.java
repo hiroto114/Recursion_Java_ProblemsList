@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 /*
  * Bill は映画監督で今まで何本も映画を作成してきました。
@@ -19,21 +17,32 @@ import java.util.Collections;
  * 
  */
 public class Problem186 {
+    public static void main(String[] args) {
+        System.out.println(Arrays.equals(getAllMovies(new int[]{16, 17, 4, 3, 5, 2}), new int[]{17, 5, 2}));
+        System.out.println(Arrays.equals(getAllMovies(new int[]{16, 17, 3, 4, 3, 5, 2}), new int[]{5, 2}));
+        System.out.println(Arrays.equals(getAllMovies(new int[]{1, 32, 31, 30, 25, 0, 5, 0}), new int[]{25, 5, 0}));
+        System.out.println(Arrays.equals(getAllMovies(new int[]{1, 9, 31, 8, 5, 0}), new int[]{31, 8, 5, 0}));
+        System.out.println(Arrays.equals(getAllMovies(new int[]{6, 3, 0, 0, 2, 1}), new int[]{2, 1}));
+        System.out.println(Arrays.equals(getAllMovies(new int[]{100, 29, 20, 3, 2, 1}), new int[]{100, 29, 20, 2, 1}));
+    }
+    
+    /**
+     * 与えられたvisitorsという配列を一番右側から順にみていく。
+     * @param visitors 映画館への訪問者数
+     * @return result 後に上映された映画の累計来場者数より来場者数が多い映画のリスト
+     */
 	public static int[] getAllMovies(int[] visitors) {
-		int total = Arrays.stream(visitors).sum();
-		System.out.println(total);
-		ArrayList<Integer> list = new ArrayList<>();
-		int amount = visitors[visitors.length - 1];
-		list.add(amount);
-		for (int i = visitors.length - 2; i >= 0; i -= 1) {
-			if (amount < visitors[i]) {
-				list.add(visitors[i]);
-			}
-			amount += visitors[i];
+		List<Integer> result = new ArrayList<Integer>();
+		// visitorsの一番右側の要素は必ず答えに含まれるので答えに入れ、sumに代入
+		result.add(visitors[visitors.length-1]);
+		int sum = visitors[visitors.length-1];
+		// 
+		for(int i=visitors.length-2;i>=0;i--){
+		    if(visitors[i] > sum){
+		        result.add(0,visitors[i]);
+		    }
+		    sum += visitors[i];
 		}
-		Collections.reverse(list);
-
-		// 連結リストをint型の配列に変換
-		return list.stream().mapToInt(Integer::intValue).toArray();
+		return result.stream().mapToInt(Integer::intValue).toArray();
 	}
 }
