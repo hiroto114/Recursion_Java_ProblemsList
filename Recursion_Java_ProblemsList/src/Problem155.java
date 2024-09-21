@@ -16,23 +16,27 @@
  * 
  */
 public class Problem155 {
+    /**
+     * 思想
+     * 1,String sの部分文字列の左端と右端、結果を詰める変数を用意
+     * 2,右端が文字列に含まれる範囲内で次の操作を実施する
+     * 3,左端と右端の値が一致していればこの時の値をresultに反映
+     * 4,右端を1つ右にずらす
+     * 5,もしも不一致ならここまでの結果をresultに反映
+     */
     public static int longestConsecutiveLength(String s){
-        int result = 0;
-        int count = 1; // →ここでインプットされた文字列の1文字目をカウントしとく
-        for(int i=0;i<s.length()-1;i++){
-            if(s.charAt(i)==s.charAt(i+1)){
-                count += 1;
-                if(i == s.length()-2){
-                    result = (count > result) ? count: result;    
-                }
-            }else{
-                result = (count > result) ? count: result;
-                count = 1;
+        int start = 0;
+        int end = 0;
+        int result = 1;
+        while(end < s.length()){
+            if(s.charAt(start) == s.charAt(end)){
+                result = Math.max(result, end - start + 1);
+                end += 1;
+            } else {
+                result = Math.max(result, (end-1) - start + 1);
+                start = end;
             }
-
         }
-
         return result;
-
     }
 }
