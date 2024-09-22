@@ -17,11 +17,13 @@ public class Problem159 {
         System.out.println(secondLargestElement(new int[]{7, 7, 7, 7}) == 7);				// true
         System.out.println(secondLargestElement(new int[]{1, 2}) == 1);						// true
     }
+    
     public static int secondLargestElement(int[] views){
         TreeSet<Integer> viewSet = new TreeSet<Integer>();
         for(int i : views) viewSet.add(i);
         return getSecondLargest(viewSet);
     }
+    
     public static int getSecondLargest(TreeSet<Integer> set) {
         if (set.size() == 1) {
             return set.last(); // 要素が1つしかない場合、最大値をそのまま返す
