@@ -1,5 +1,3 @@
-import java.util.Iterator;
-import java.util.Set;
 import java.util.TreeSet;
 
 /*
@@ -10,33 +8,28 @@ import java.util.TreeSet;
  * 全ての再生回数が同じ場合は、その再生回数を返してください。
  */
 public class Problem159 {
-    /*
-     * ツリーセットを使って重複要素を削除＋要素を昇順にする
-     * そのうえで要素が1個→その値を返却
-     * 要素が2個以上→最後から2番目を返却
-     **/
-    public static int secondLargestElement(int[] views){
-        Set<Integer> viewSet = new TreeSet<Integer>();
-        for(int i : views){
-            viewSet.add(i);
-        }
-        if(viewSet.size() == 1) return getNthElementFromSet(viewSet, 1);
-        return getNthElementFromSet(viewSet, viewSet.size() - 1);
+    public static void main(String[] args) {
+        // テストケースまとめ
+        System.out.println(secondLargestElement(new int[]{40, 50, 80, 100, 30}) == 80);		// true
+        System.out.println(secondLargestElement(new int[]{80, 80, 80}) == 80);				// true
+        System.out.println(secondLargestElement(new int[]{99, 1, 55, 99, 34, 76}) == 76);	// true
+        System.out.println(secondLargestElement(new int[]{5, 9, 3}) == 5);					// true
+        System.out.println(secondLargestElement(new int[]{7, 7, 7, 7}) == 7);				// true
+        System.out.println(secondLargestElement(new int[]{1, 2}) == 1);						// true
     }
-    /**
-     * セットのn番目のようそをしゅと
-     */
-    public static int getNthElementFromSet(Set<Integer> set, int n){
-        Iterator<Integer> iterator = set.iterator();
-        int count = 0;
-        int nthElement = 0;
-        while (iterator.hasNext()) {
-            nthElement = iterator.next();
-            count++;
-            if (count == n) {
-                break;
-            }
+    public static int secondLargestElement(int[] views){
+        TreeSet<Integer> viewSet = new TreeSet<Integer>();
+        for(int i : views) viewSet.add(i);
+        return getSecondLargest(viewSet);
+    }
+    public static int getSecondLargest(TreeSet<Integer> set) {
+        if (set.size() == 1) {
+            return set.last(); // 要素が1つしかない場合、最大値をそのまま返す
+        } else if (set.size() >= 2) {
+            set.pollLast(); // 最大値を取り除く
+            return set.last(); // 2番目に大きい要素を取得
+        }else{
+            return 0;
         }
-        return nthElement;
     }
 }
