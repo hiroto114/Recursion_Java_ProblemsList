@@ -10,23 +10,21 @@ import java.util.List;
  */
 public class Problem204 {
 	public static BinaryTree<Integer> predecessor(BinaryTree<Integer> root, int key){
-		if(root == null) return null;
-		List<BinaryTree<Integer>> nodes = inorderTraversal(root);
-		BinaryTree<Integer> result = null;
-		for(BinaryTree<Integer> pointer: nodes) {
-			if(pointer == null) continue;
-			if(pointer.data < key) {
-				if(result == null) {
-					result = pointer;
-					continue;
-				}
-				if(result.data < pointer.data) {
-					result = pointer;
-				}
-			}
-		}
-		return result;
+        // 間順探索で得られたノードの値のリスト
+        List<BinaryTree<Integer>> inorderList = inorderTraversal(root);
 
+        // デバッグ用にリストの中身を表示
+        System.out.println("Inorder Traversal Result: " + inorderList);
+
+        // key をリスト内で探し、その前の値を返す
+        for (int i = 1; i < inorderList.size(); i++) { // i=1から開始して先行ノードを確認
+            if (inorderList.get(i).data == key) {
+                return inorderList.get(i - 1); // 一つ前の値を返す
+            }
+        }
+
+        // 先行ノードが見つからない場合は null を返す
+        return null;
 	}
 	/*
 	 * 間順探索で2分探索木全体をリストに詰める→返却

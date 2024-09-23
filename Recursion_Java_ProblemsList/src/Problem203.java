@@ -11,22 +11,21 @@ import java.util.List;
  */
 public class Problem203 {
 	public static BinaryTree<Integer> successor(BinaryTree<Integer> root, int key){
-		if(root == null) return null;
-		List<BinaryTree<Integer>> nodes = inorderTraversal(root);
-		BinaryTree<Integer> result = null;
-		for(BinaryTree<Integer> pointer: nodes) {
-			if(pointer == null) continue;
-			if(pointer.data > key) {
-				if(result == null) {
-					result = pointer;
-					continue;
-				}
-				if(result.data > pointer.data) {
-					result = pointer;
-				}
-			}
-		}
-		return result;
+        // 間順探索で得られたノードの値のリスト
+        List<BinaryTree<Integer>> inorderList = inorderTraversal(root);
+
+        // デバッグ用にリストの中身を表示
+        System.out.println("Inorder Traversal Result: " + inorderList);
+
+        // key をリスト内で探し、その次の値を返す
+        for (int i = 0; i < inorderList.size() - 1; i++) { // 最後の要素を超えないようにループ
+            if (inorderList.get(i).data == key) {
+                return inorderList.get(i + 1); // 一つ後の値を返す
+            }
+        }
+
+        // 後続ノードが見つからない場合は null を返す
+        return null;
 	}
 	/*
 	 * 間順探索で2分探索木全体をリストに詰める→返却
@@ -39,60 +38,4 @@ public class Problem203 {
 		if(input.right != null) result.addAll(inorderTraversal(input.right));
 		return result;
 	}
-	/*
-    public static BinaryTree<Integer> successor(BinaryTree<Integer> root, int key){
-        if(root==null) return null;
-        BinaryTree<Integer> result = findKeyNode(root,key);
-        if(result.right!= null) return findMinimumNode(result.right);
-
-        result = findSuccessorNode(root,key);
-        return result;
-    }
-
-    public static BinaryTree<Integer> findKeyNode(BinaryTree<Integer> root, int key){
-        BinaryTree<Integer> result = root;
-        if(result==null) return null;
-        while(result!= null){
-            if(result.data == key) return result;
-            if(result.data >  key) result = result.left;
-            if(result.data <  key) result = result.right;
-        }
-        return null;
-    }
-
-    public static BinaryTree<Integer> findMinimumNode(BinaryTree<Integer> root){
-        if(root == null) return null;
-        BinaryTree<Integer> result = root;
-        BinaryTree<Integer> pointer = root;
-        while(pointer != null){
-            if(result.data>pointer.data){
-                result = pointer;
-            }
-            pointer = pointer.left;
-        }
-        return result;
-    }
-
-    public static BinaryTree<Integer> findSuccessorNode(BinaryTree<Integer> root, int key){
-        BinaryTree<Integer> pointer = root;
-        BinaryTree<Integer> result = null;
-
-        while(pointer != null){
-            if(pointer.data>key){
-                if(result==null){
-                    result = pointer;
-                }else if(result.data > pointer.data){
-                    result = pointer;
-                }
-            }
-            if(pointer.data < key){
-                pointer = pointer.right;
-            }else{
-                pointer = pointer.left;
-            }
-        }
-
-        return result;
-    }
-	 */
 }
