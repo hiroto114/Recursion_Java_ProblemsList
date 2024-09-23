@@ -17,6 +17,15 @@ import java.util.Stack;
  * longestValidParentheses("((((((()))))))))") --> 14
  * longestValidParentheses(")())))(((()()(()()(") --> 4
  * 
+ * ■解法（基本的にはStack＋for文の1重ループで解く。またfor文でループしている間にもresultをexpectedResultの値をもとに更新し続ける）
+ * 1,文字が(なら問答無用でStackに詰める
+ * 2,文字が)なら、、、
+ *  2-1,Stackが空ならexpectedResultを0にする
+ *  2-2,Stackのピークが(ならStackをPopしてexpectedResultを+2する
+ *  2-3,Stackのピークが)ならStackをpopしてexpectedResultを0にする
+ * これを繰り返すイメージ。
+ * 
+ * 何はともあれ、場合分けして実験して規則性をつかんでそれをコードに落とし込むだけ。
  */
 public class Problem164 {
 	// 鍵カッコ（parentheses）が与えられる
