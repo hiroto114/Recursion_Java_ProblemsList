@@ -1,6 +1,7 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /*
  * 自然数によって構成される配列 intArr と自然数 target が与えられるので、
@@ -17,7 +18,7 @@ import java.util.List;
  */
 public class Problem234 {
 	public static int maximizeCount(int[] intArr, int target){
-		List<Integer> list= toList(intArr);
+		List<Integer> list= Arrays.stream(intArr).boxed().collect(Collectors.toList());
 		int result = intArr.length;
 		int helper = list.stream().mapToInt(Integer::intValue).sum();
 		int helperMax ;
@@ -30,11 +31,5 @@ public class Problem234 {
 		}
 
 		return result;
-	}
-	public static List<Integer> toList(int[] arr){
-		// int[] -> ArrayList<Integer>
-		List<Integer> list = new ArrayList<Integer>();
-		for (int t : arr) list.add(t);
-		return list;
 	}
 }
