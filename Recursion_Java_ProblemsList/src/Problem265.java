@@ -12,15 +12,12 @@
  */
 public class Problem265 {
 	public static SinglyLinkedListNode<Integer> middleNode(SinglyLinkedListNode<Integer> head){
-		// 関数を完成させてください
 		SinglyLinkedListNode<Integer> slow = head;
 		SinglyLinkedListNode<Integer> fast = head;
-		while(slow != null && fast != null && fast.next != null){
+		while(fast != null && fast.next != null){
 			slow = slow.next;
 			fast = fast.next.next;
 		}
 		return slow;
-
 	}
 }
-
