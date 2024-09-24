@@ -6,7 +6,10 @@
  * bstPattern(19) --> 1767263190
  */
 public class Problem276 {
-	// 普通に動的計画法でいけるわ。
+	/** 
+	 * 普通に実験して規則性を掴む＋動的計画法でいけるわ。
+	 * num=0,1,2,3,4,,,,,,のときを全部計算＋ある値iのときにはルートノードが1,2,,,,,iだったら左と右はどうなるかを考えると見えてくる。
+	 */
 	public static int bstPattern(int num){
 		int[] result = new int[num+1];
 		result[0]    = 1;
