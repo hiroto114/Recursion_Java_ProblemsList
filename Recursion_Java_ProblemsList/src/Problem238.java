@@ -28,7 +28,9 @@ public class Problem238 {
 		if(n >= 21 && n <= 26) return 2;
 
 		int result = 0;
+		// 123を1,2,3と12,3に分割する処理によるもの。
 		if(n%10 >= 1 && n%10 <= 9)     result += decodeInteger(n/10);
+		// 123を1,23に分割する処理によるもの。
 		if(n%100 >= 10 && n%100 <= 26) result += decodeInteger(n/100);
 
 		return result;
