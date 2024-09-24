@@ -19,20 +19,26 @@
  * とにかく書いて実験をしてパターンをつかむこと。それをしないとずーっと頭の中でボーっとして解答がつかめない。
  */
 public class Problem25 {
-    public static String middleSubstring(String stringInput){
-        if((stringInput.length()<=2)) return stringInput.substring(0,1);
-
-        return stringInput.substring(
-            middleSubstringHelper(stringInput.length())-1
-            ,middleSubstringHelper(stringInput.length())-1 + stringInput.length()/2
-        );
+    public static void main(String[] args) {
+        System.out.println(middleSubstring("A").equals("A"));
+        System.out.println(middleSubstring("AB").equals("A"));
+        System.out.println(middleSubstring("ABC").equals("B"));
+        System.out.println(middleSubstring("ABCD").equals("BC"));
+        System.out.println(middleSubstring("ABCDE").equals("BC"));
+        System.out.println(middleSubstring("ABCDEF").equals("CDE"));
+        System.out.println(middleSubstring("ABCDEFG").equals("CDE"));
+        System.out.println(middleSubstring("ABCDEFGH").equals("CDEF"));
+        System.out.println(middleSubstring("ABCDEFGHI").equals("CDEF"));
+        System.out.println(middleSubstring("ABCDEFGHIJ").equals("DEFGH"));
+        System.out.println(middleSubstring("ABCDEFGHIJK").equals("DEFGH"));
+        System.out.println(middleSubstring("ABCDEFGHIJKL").equals("DEFGHI"));
+        System.out.println(middleSubstring("fundamental").equals("damen"));
     }
 
-    public static int middleSubstringHelper(int input){
-        for(int i=1;true;i++){
-            if(input >= (i)*(i+1)/2 && input <= (i+1)*(i+2)/2){
-                return i-1;
-            }
-        }
+    public static String middleSubstring(String stringInput){
+        if((stringInput.length() <= 2)) return stringInput.substring(0, 1);
+        int start = stringInput.length()/2 - stringInput.length()/4;
+        int length = stringInput.length()/2;
+        return stringInput.substring(start, start + length);
     }
 }
