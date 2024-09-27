@@ -22,6 +22,12 @@ import java.util.List;
  * increasingDeck([18,12]) --> [12,18]
  * increasingDeck([18,14,12,3,4,6,8]) --> [3,14,4,12,6,18,8]
  * increasingDeck([47,35,17,13,11,15,2,3,5,7]) --> [2,13,3,47,5,15,7,35,11,17]
+ * 
+ * 1,入力配列deckをソート
+ * 2,ArrayListのdeckListには0~n-1までを登録
+ * 3,deckListを並べ替えて0~n-1がどの位置に来るのかを計算
+ * 4,2と3のペアが対応になっていて、3の順番にソートされていればよい
+ * 5,3の順番にソートされた順の値が来ればよいのだからその順に結果を作ればよい
  */
 public class Problem285 {
 	public static int[] increasingDeck(int[] deck){
