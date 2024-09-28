@@ -12,13 +12,11 @@ import java.util.List;
  */
 public class Problem299 {
 	public static SinglyLinkedListNode<Integer> rotateLinkedList(SinglyLinkedListNode<Integer> head, int x){
-		int length = 0;
 		SinglyLinkedListNode<Integer> pointer = head;
 
 		List<Integer> list = new ArrayList<Integer>();
 
 		while(pointer != null){
-			length += 1;	    
 			list.add(pointer.data);
 			pointer = pointer.next;
 		}
