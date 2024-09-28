@@ -13,24 +13,27 @@
  * 
  */
 public class Problem297 {
-	public static String deleteXDigits(String digits, int x){
-		if(x <= 0) return digits;
-		if(digits.length() <= x) return "0";
-		for(int i=1; i<=x; i++){
-			digits = deleteXDigitsHelper(digits);
-		}
-		return String.valueOf(Integer.parseInt(digits));
-	}
+    public static String deleteXDigits(String number, int x) {
+        if(number.length()<=x) return "0";
+        for(int i=0;i<x;i++){
+            // 一文字ずつ削っていって最大値を見つける
+            number = deleteOneStringForHighestScore(number);
+        }
+        return number;
+    }
 
-	// 数字が与えられるので、1桁削って最小のものを返す関数
-	public static String deleteXDigitsHelper(String digits){
-		if(digits.length() <= 1) return "0";
-		String result = digits;
-		for(int i=0; i<digits.length(); i++){
-			if(Integer.parseInt((new StringBuilder(digits).deleteCharAt(i)).toString()) < Integer.parseInt(result)){
-				result = (new StringBuilder(digits).deleteCharAt(i)).toString();
-			}
-		}
-		return result;
-	}
+	// 数字が与えられるので、1桁削って最大のものを返す関数
+    public static String deleteOneStringForHighestScore(String number){
+        String result = number;
+        String expectedResult = "";
+        for(int i=0;i<number.length();i++){
+            // 暫定結果と他の1文字を削った値を比較して最大値を更新していく
+            expectedResult = (new StringBuilder(number)).deleteCharAt(i).toString();
+            if(Integer.parseInt(result) > Integer.parseInt(expectedResult)){
+                result = expectedResult;
+            }
+        }
+        // resultの先頭0を削除
+        return String.valueOf(Integer.parseInt(result));
+    }
 }
