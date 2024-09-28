@@ -8,19 +8,19 @@ import java.util.stream.Collectors;
  */
 public class Problem316 {
 	public static int findNSmallest(BinaryTree<Integer> root, int n){
-		return preorderTraversal(root)[n-1];
+		return inOrderTraversal(root)[n-1];
 	}
 
-	public static int[] preorderTraversal(BinaryTree<Integer> root){
+	public static int[] inOrderTraversal(BinaryTree<Integer> root){
 		if(root == null) return new int[0];
 
 		List<Integer> result = new ArrayList<Integer>();
 		if(root.left != null){
-			result.addAll(Arrays.stream(preorderTraversal(root.left)).boxed().collect(Collectors.toList()));
+			result.addAll(Arrays.stream(inOrderTraversal(root.left)).boxed().collect(Collectors.toList()));
 		}
 		result.add(root.data);
 		if(root.right != null){
-			result.addAll(Arrays.stream(preorderTraversal(root.right)).boxed().collect(Collectors.toList()));
+			result.addAll(Arrays.stream(inOrderTraversal(root.right)).boxed().collect(Collectors.toList()));
 		}
 		return result.stream().mapToInt(Integer::intValue).toArray();
 
