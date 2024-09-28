@@ -13,10 +13,10 @@ public class Problem309 {
 		if(n==0) return new int[]{1};
 		if(n==1) return new int[]{1,1};
 
-		return pascalRowHelper(pascalRow(n-1));
+		return calculatePascalNextRow(pascalRow(n-1));
 	}
 
-	public static int[] pascalRowHelper(int[] input){
+	public static int[] calculatePascalNextRow(int[] input){
 		int[] result = new int[input.length+1];
 		result[0] = input[0];
 		result[result.length-1] = input[input.length-1];
