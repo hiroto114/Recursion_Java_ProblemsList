@@ -4,16 +4,8 @@
  */
 public class Problem372 {
 	public static int multipleOfTwoTotal(int n){
-		if(n==0){
-			return 0;
-		}else if(n==1){
-			return 2;
-		}else{
-			return multipleOfTwoTotalHelper(n)+multipleOfTwoTotal(n-1);
-		}
-	}
-
-	public static int multipleOfTwoTotalHelper(int n){
-		return (1+n)*n;
+		if(n==0) return 0;
+		if(n==1) return 2;
+		return (1+n)*n+multipleOfTwoTotal(n-1);
 	}
 }
