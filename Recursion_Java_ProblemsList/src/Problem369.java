@@ -3,20 +3,13 @@
  */
 public class Problem369 {
     public static int summationOfSummation(int n){
-        if(n==0){
-            return 0;
-        }else if(n==1){
-            return 1;
-        }else{
-            return summationHelper(n) + summationOfSummation(n-1);
-        }
+        if(n==0) return 0;
+        if(n==1) return 1;
+        return summation(n) + summationOfSummation(n-1);
     }
 
-    public static int summationHelper(int n){
-        if(n<=0){
-            return 0;
-        }else{
-            return (1+n)*n/2;
-        }
+    public static int summation(int n){
+        if(n<=0) return 0;
+        return (1+n)*n/2;
     }
 }
